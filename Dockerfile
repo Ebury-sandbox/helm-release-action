@@ -13,4 +13,4 @@ COPY . ./
 RUN --mount=type=secret,id=awscli,env=AWS_CONTAINER_CREDENTIALS_RELATIVE_URI \
     echo $AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
 
-ENTRYPOINT ["bash", "echo done"]
+ENTRYPOINT ["node", "./index.js"]
