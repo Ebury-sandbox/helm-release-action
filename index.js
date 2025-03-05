@@ -76,13 +76,14 @@ async function installPlugins() {
 async function main() {
   try {
     await installPlugins();
-    await exec.exec(HELM, repo());
-    await exec.exec(HELM, package());
-    await exec.exec(HELM, push());
+    //await exec.exec(HELM, repo());
+    //await exec.exec(HELM, package());
+    //await exec.exec(HELM, push());
   } catch (err) {
     core.error(err);
     core.setFailed(err.message);
   }
+  console.log(process.env)
 }
 
 main();
