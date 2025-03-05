@@ -7,5 +7,7 @@ RUN apk add --no-cache bash curl openssl git nodejs
 RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 
 COPY . ./
-RUN echo $AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
+
+ENTRYPOINT ["echo", "$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI"]
+
 # ENTRYPOINT ["node", "/index.js"]
