@@ -1,5 +1,5 @@
 FROM alpine
-ENV AWS_CONTAINER_CREDENTIALS_RELATIVE_URI = "${AWS_CONTAINER_CREDENTIALS_RELATIVE_URI}"
+
 # Install bash
 RUN apk add --no-cache bash curl openssl git nodejs
 
@@ -8,6 +8,6 @@ RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 |
 
 COPY . ./
 
-RUN echo ${AWS_CONTAINER_CREDENTIALS_RELATIVE_URI}
+RUN --mount=type=secret,id=awscli,env=AWS_CONTAINER_CREDENTIALS_RELATIVE_URI aws sts get-caller-identity
 
 ENTRYPOINT ["node", "/index.js"]
