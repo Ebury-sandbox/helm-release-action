@@ -11,6 +11,6 @@ RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 |
 COPY . ./
 
 RUN --mount=type=secret,id=awscli,env=AWS_CONTAINER_CREDENTIALS_RELATIVE_URI \
-    aws sts get-caller-identity
+    echo $AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
 
 ENTRYPOINT ["node", "/index.js"]
