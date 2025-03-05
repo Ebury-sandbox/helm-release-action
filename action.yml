@@ -28,9 +28,13 @@ inputs:
   helmS3Version:
     description: 'The version of the Helm S3 plugin to install. Defaults to the latest release from GitHub.'
     required: false
+  secrets:
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  secrets: |
+    "awscli=${{env.AWS_CONTAINER_CREDENTIALS_RELATIVE_URI}}"
   args:
     - ${{ inputs.version }}
     - ${{ inputs.chart }}
