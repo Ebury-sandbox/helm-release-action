@@ -8,6 +8,6 @@ RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 |
 
 COPY . ./
 
-ENTRYPOINT ["echo", "$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI"]
+RUN echo ${AWS_CONTAINER_CREDENTIALS_RELATIVE_URI}
 
-# ENTRYPOINT ["node", "/index.js"]
+ENTRYPOINT ["node", "/index.js"]
