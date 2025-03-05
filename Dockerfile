@@ -1,4 +1,6 @@
-FROM alpine
+# syntax=docker/dockerfile:1
+
+FROM ubuntu-latest
 
 # Install bash
 RUN apk add --no-cache bash curl openssl git nodejs
