@@ -28,8 +28,8 @@ inputs:
   helmS3Version:
     description: 'The version of the Helm S3 plugin to install. Defaults to the latest release from GitHub.'
     required: false
-  secrets:
-    required: true
+  # secrets:
+  #   required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
